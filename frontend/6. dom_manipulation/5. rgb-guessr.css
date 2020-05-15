@@ -1,0 +1,60 @@
+:root {
+    --main-color: rgb(9, 117, 218)
+}
+
+html,
+body {
+    height: 100%;
+    background: rgb(44, 44, 44);
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#gameDiv {
+    height: 100%;
+}
+
+#controls {
+    background: white;
+    font-weight: bold;
+}
+
+#controls div:hover {
+    cursor: pointer;
+}
+
+#try-again {
+    font-weight: normal;
+    font-size: 0.8rem;
+}
+
+.difficulty {
+    color: white;
+}
+
+.mainBackground {
+    background: #3175da;
+    /*var(--main-color);*/
+}
+
+.mainColor {
+    color: #3175da;
+    /*var(--main-color);*/
+}
+
+#headerContent {
+    height: 80%;
+}
+
+.guessSquare {
+    height: 100px;
+    border-radius: .25rem;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.guessSquare:hover {
+    border: dashed red 1px;
+}

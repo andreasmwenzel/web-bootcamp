@@ -1,0 +1,59 @@
+h1{
+    text-align: center;
+}
+
+table{
+    margin: 0 auto;
+}
+td{
+    height:100px;
+    width:100px;
+    margin: 0px;
+    /* border: 1px solid black; */
+}
+
+/* COUNT IMPLEMENTATION */
+/* td:nth-of-type(2){
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+tr:nth-of-type(2) td{
+
+    border-top: 1px solid black;
+    border-bottom: 1px solid black; 
+} */
+
+/* ID IMPLEMENTATION */
+
+/*#center-center{
+    border: 1px solid black;
+}
+
+#top-center {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+#bottom-center {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+
+#center-left{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#center-right{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+} */
+
+/* CLASS IMPLEMENTATION */
+.vertical {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+.horizontal {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+} 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="5. rgb-guessr.css">
+    <title>RGB GUESSR</title>
+</head>
+
+<body>
+    <section id="header">
+        <div id="headJumbo" class="jumbotron jumbotron-fluid mb-0 py-0 mainBackground">
+            <div id="headerContent" class="container text-center">
+                <p class="lead py-0 my-0">THE GREAT</p>
+                <h1 class="display-6 display-sm-3 py-0 my-0">
+                    RGB (
+                    <span id="rValue" class="colorDisplay">9</span>,
+                    <span id="gValue" class="colorDisplay">117</span>,
+                    <span id="bValue" class="colorDisplay">218</span> )
+                </h1>
+                <p class="lead py-0 my-0">GUESSING GAME</p>
+
+            </div>
+        </div>
+        <div id="controls" class="d-flex justify-content-around mt-0">
+            <div id="reset" class="mainColor">NEW GAME</div>
+            <p id="try-again" class="align-self-center my-0 invisible">Try Again</p>
+            <div id="difficultyToggle" class="d-flex align-content-around">
+                <div id="easy" class="difficulty d-inline px-1 mx-1 mainColor">EASY</div>
+                <div id="hard" class="difficulty d-inline px-1 mx-1 mainBackground">HARD</div>
+            </div>
+        </div>
+    </section>
+    <section id="gameBoard">
+        <div id="gameDiv" class="container my-0">
+            <div class="row d-flex justify-content-center my-1">
+                <div class="guessSquare col mx-3 my-1 mainBackground"></div>
+                <div class="guessSquare col mx-3 my-1 mainBackground"></div>
+                <div class="guessSquare col mx-3 my-1 mainBackground"></div>
+            </div>
+            <div class="row d-flex justify-content-center my-1">
+                <div class="guessSquare col mx-3 my-1 mainBackground"></div>
+                <div class="guessSquare col mx-3 my-1 mainBackground"></div>
+                <div class="guessSquare col mx-3 my-1 mainBackground"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="5. rgb-guessr.js"></script>
+</body>
+
+</html>

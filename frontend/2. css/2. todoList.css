@@ -1,0 +1,11 @@
+li{
+    border: 2px solid red
+}
+
+#t1{
+    background: green
+}
+
+.done{
+    text-decoration: line-through;
+}

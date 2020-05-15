@@ -1,0 +1,29 @@
+/* font family */
+body{
+    font-size: 10px;
+}
+
+p {
+    font-family: Arial;
+}
+
+h1{
+    font-family: Georgia;
+    font-family: "Indie Flower", cursive;
+    font-size: 5em;
+    text-align: center;
+    text-decoration: line-through;
+}
+
+span{
+    font-size: 2em;
+}
+
+p{
+    font-size: 2em;
+    font-family: Raleway, sans-serif;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: overline;
+}

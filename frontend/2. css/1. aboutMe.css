@@ -1,0 +1,19 @@
+h1{
+    color:rgba(255,0,0,.4);
+    border: solid 5px green;
+}
+
+li{
+    color:green;
+}
+h4{
+    color: white;
+    background:purple;
+}
+
+body{
+    background: pink;
+    /* background: url(https://cdn11.bigcommerce.com/s-own6dl/images/stencil/2048x2048/products/3827/10361/IMG_7292_edited-1__54678.1535575472.jpg?c=2);
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
