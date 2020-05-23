@@ -1,0 +1,9 @@
+<%- include("partials/header") %> 
+
+<h1>You requested: <%= thing%></h1>
+
+<%  if(thing.toLowerCase() === "pizza"){ %>
+    <p>yum!</p>
+<% } %>  
+
+<%- include("partials/footer") %> 
