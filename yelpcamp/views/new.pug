@@ -1,0 +1,18 @@
+extends partials/layout
+block styles
+    link(rel="stylesheet", href="../../css/new.css")
+        
+block content
+    
+    .container
+        h1.h3.my-4 Create a New Campground
+        
+        form(action="/campgrounds", method="post")
+            .form-group
+                input(type="text", name="name" placeholder= "name").form-control
+            .form-group
+                input(type="text", name="img" placeholder = "image url").form-control
+            .form-group
+                button(type="submit").btn-block.btn.btn-primary Add Campsite
+
+        a(href="/campgrounds") Go Back

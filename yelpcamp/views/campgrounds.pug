@@ -1,0 +1,17 @@
+extends partials/layout
+block content
+    .container
+        .jumbotron
+            .container
+                h1 Campgrounds
+                p Here's a list of our most famous sites
+                hr.my-4
+                a.btn.btn-primary(href="/campgrounds/new") Add New Campground
+        .row.justify-content-center
+            each camp in camps
+                .container.mb-3.col-sm-6.col-md-4
+                    .card
+                        img(src=camp.image, alt="").card-img-top.img-thumbnail
+                        .card-body.text-center
+                            h5.card-title= camp.name
+                            p.card-test some info about #{camp.name}
