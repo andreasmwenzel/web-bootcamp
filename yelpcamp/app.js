@@ -1,32 +1,54 @@
-const express = require("express")
-const bodyParser = require("body-parser")
+const express = require("express"),
+      bodyParser = require("body-parser"),
+      mongoose = require("mongoose"),
+      app = express(),
+      port = 3000;
 
-const app = express();
-const port = 3000;
-
-let campgrounds = [
-    {name: "Salmon Creek", image:"https://pixabay.com/get/54e5dc474355a914f1dc84609620367d1c3ed9e04e507440752b7bd09e4fc7_340.jpg"},
-    {name: "Granite Hill", image:"https://pixabay.com/get/57e1d14a4e52ae14f1dc84609620367d1c3ed9e04e507440752b7bd09e4fc7_340.jpg"},
-    {name: "Mountain Goat's Rest", image:"https://pixabay.com/get/57e8d0424a5bae14f1dc84609620367d1c3ed9e04e507440752b7bd09e4fc7_340.jpg"},
-    {name: "Salmon Creek", image:"https://pixabay.com/get/54e5dc474355a914f1dc84609620367d1c3ed9e04e507440752b7bd09e4fc7_340.jpg"},
-    {name: "Granite Hill", image:"https://pixabay.com/get/57e1d14a4e52ae14f1dc84609620367d1c3ed9e04e507440752b7bd09e4fc7_340.jpg"},
-    {name: "Mountain Goat's Rest", image:"https://pixabay.com/get/57e8d0424a5bae14f1dc84609620367d1c3ed9e04e507440752b7bd09e4fc7_340.jpg"},
-    {name: "Salmon Creek", image:"https://pixabay.com/get/54e5dc474355a914f1dc84609620367d1c3ed9e04e507440752b7bd09e4fc7_340.jpg"},
-    {name: "Granite Hill", image:"https://pixabay.com/get/57e1d14a4e52ae14f1dc84609620367d1c3ed9e04e507440752b7bd09e4fc7_340.jpg"},
-    {name: "Mountain Goat's Rest", image:"https://pixabay.com/get/57e8d0424a5bae14f1dc84609620367d1c3ed9e04e507440752b7bd09e4fc7_340.jpg"}
-]
-
-
+mongoose.connect(
+    "mongodb://localhost:27017/yelp_camp",
+    { useNewUrlParser: true, useUnifiedTopology: true }
+)
 
 app.set("view engine", "pug")
 app.use(express.static("public"))
 app.use(bodyParser.urlencoded({extended: true}))
 
+//SCHEMA SETUP
+const campgroundSchema = new mongoose.Schema({
+    name: String,
+    image: String,
+    description: String
+});
+
+const Campground = mongoose.model("Campground", campgroundSchema);
+
+// Campground.create(
+//     {
+//         name: "Beach",
+//         image: "https://i.imgur.com/MI6dLSM.jpg",
+//         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum delectus nobis temporibus minus, reprehenderit itaque mollitia ratione ullam porro veniam?"
+//     }, function(err, campground){
+//         if(err){
+//             console.log(err);
+//         }else{
+//             console.log("new campground:");
+//             console.log(campground);
+//         }
+//     }
+// )
+
 // **** ROUTES ****
 app.get("/", (req, res)=>res.render("home"));
 
 app.get("/campgrounds", (req, res) =>{
-    res.render("campgrounds", {camps:campgrounds})
+    //get campgrounds from db
+    Campground.find({}, function(err, campgrounds){
+        if(err){
+            console.log(err)
+        } else{
+            res.render("index", {camps:campgrounds})
+        }
+    })
 })
 
 app.get("/campground", (req, res)=>{
@@ -39,12 +61,32 @@ app.get("/campgrounds/new", (req, res)=>{
 
 app.post("/campgrounds", (req, res) =>{
     //get data from from and add to campground array
-    campgrounds.push({
-        name: req.body.name,
-        image: req.body.img
+    var newCampground = {
+        name: req.body.name, 
+        image: req.body.img,
+        description: req.body.desc
+    }
+    Campground.create(newCampground, function(err, campground){
+        if(err){ 
+            console.log(err)
+        } else{
+            //redirect to campground page
+            res.redirect("/campgrounds")
+        }
     })
-    //redirect to campground page
-    res.redirect("/campgrounds")
+    
+})
+
+app.get("/campgrounds/:id", (req, res)=>{
+    //find campground with provided ID
+    Campground.findById(req.params.id, function(err, campground){
+        if(err){
+            console.log(err);
+        } else{
+            console.log(campground);
+            res.render("show", {campground : campground});
+        }
+    });
 })
 
 app.listen(port, () => console.log(`openDB app listening at http://localhost:${port}`))
