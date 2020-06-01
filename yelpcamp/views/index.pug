@@ -14,4 +14,4 @@ block content
                         img(src=camp.image, alt="").card-img-top.img-thumbnail
                         .card-body.text-center
                             h5.card-title= camp.name
-                            p.card-test some info about #{camp.name}
+                            a.btn.btn-primary(href="/campgrounds/"+camp.id) More Info
