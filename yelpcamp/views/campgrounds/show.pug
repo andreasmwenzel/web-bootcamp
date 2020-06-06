@@ -1,0 +1,33 @@
+extends ../partials/layout
+block content
+    .container.mt-3
+        .row
+            .col-md-3
+                p.lead Yelpcamp
+                .list-group
+                    li.list-group-item.active Info 1
+                    li.list-group-item Info 2
+                    li.list-group-item Info 3
+                p MAP
+            .col-md-9
+                .card
+                    img(src=campground.image, alt="").card-image-top
+                    .card-body
+                        .card-title
+                            a(href="").d-inline
+                                h5.card-title.d-inline #{campground.name}     
+                            h5.float-right $9.00/night
+                        p.card-text #{campground.description}
+                        
+                .card.bg-light
+                    .card-body
+                        .d-flex.flex-row-reverse.justify-content-between.align-items-center
+                            a(href="/campgrounds/" + campground._id + "/comments/new").btn.btn-success Write a review
+                            h3 Reviews
+                        hr
+                        each comment in campground.comments
+                            .row
+                                .col-md-12
+                                    strong #{comment.author}
+                                    span.float-right 10 days ago
+                                    p #{comment.text}

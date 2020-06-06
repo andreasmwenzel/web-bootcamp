@@ -1,4 +1,4 @@
-extends partials/layout
+extends ../partials/layout
 block content
     .container
         .jumbotron
@@ -11,7 +11,7 @@ block content
             each camp in camps
                 .container.mb-3.col-sm-6.col-md-4
                     .card
-                        img(src=camp.image, alt="").card-img-top.img-thumbnail
+                        img(src=camp.image, alt="").card-img-top
                         .card-body.text-center
                             h5.card-title= camp.name
                             a.btn.btn-primary(href="/campgrounds/"+camp.id) More Info
