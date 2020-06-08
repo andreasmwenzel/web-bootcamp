@@ -4,9 +4,14 @@ nav#nav.navbar.navbar-expand-md.navbar-light.bg-light.sticky-top.navbar-fixed-wi
         span.navbar-toggler-icon
     #mainNav.collapse.navbar-collapse
         ul.navbar-nav.ml-auto
-            li
-                a.btn.my-2.my-sm-0(href='/') Sign Up
-            li
-                a.btn.my-2.my-sm-0(href='/') Log In
-            li
-                a.btn.my-2.my-sm-0(href='/') Log Out
+            if currentUser
+                li 
+                    a.btn.my-2.my-sm-0(href="/user") #{currentUser.username}
+                li
+                    a.btn.my-2.my-sm-0(href='/logout') Log Out
+            else
+                li
+                    a.btn.my-2.my-sm-0(href='/register') Sign Up
+                li
+                    a.btn.my-2.my-sm-0(href='/login') Log In
+            
