@@ -30,17 +30,17 @@ async function seedDB() {
         console.log(deleted.deletedCount + " campgrounds deleted");
     
         //add some campgrounds
-        for (camp of data) {
-            let c = await Campground.create(camp);
-            console.log("Created " + c.name + " with id " + c._id)
-            let com = await Comment.create({
-                text: "This place is great, but I wish there was internet",
-                author: "Homer"
-            })
-            console.log(com)
-            c.comments.push(com);
-            c.save();
-        }
+        // for (camp of data) {
+        //     let c = await Campground.create(camp);
+        //     console.log("Created " + c.name + " with id " + c._id)
+        //     let com = await Comment.create({
+        //         text: "This place is great, but I wish there was internet",
+        //         author: "Homer"
+        //     })
+        //     console.log(com)
+        //     c.comments.push(com);
+        //     c.save();
+        // }
     }catch(err){
         console.log(err);
     }
